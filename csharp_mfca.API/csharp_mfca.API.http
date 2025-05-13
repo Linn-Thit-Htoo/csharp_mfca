@@ -1,0 +1,6 @@
+@csharp_mfca.API_HostAddress = http://localhost:5231
+
+GET {{csharp_mfca.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
