@@ -8,7 +8,7 @@
 
 **MFCA** is a pragmatic backend architecture that combines:
 
-- Domain Driven Design (DDD)
+- Domain Driven Design (DDD) principles
 - Clean Architecture
 - REPR Pattern
 - Vertical Slice Architecture
