@@ -14,13 +14,22 @@ namespace csharp_mfca.API.Extensions;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencies(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
-            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: true)
+        builder
+            .Configuration.SetBasePath(builder.Environment.ContentRootPath)
+            .AddJsonFile(
+                $"appsettings.{builder.Environment.EnvironmentName}.json",
+                optional: false,
+                reloadOnChange: true
+            )
             .AddEnvironmentVariables();
 
-        builder.Services.AddControllers()
+        builder
+            .Services.AddControllers()
             .ConfigureApiBehaviorOptions(opt =>
             {
                 opt.InvalidModelStateResponseFactory = context =>
@@ -31,7 +40,10 @@ public static class DependencyInjectionExtensions
                         .ToList();
 
                     var errorMessage = string.Join(". ", errors);
-                    var result = BaseResponse<object>.Fail(context.HttpContext.TraceIdentifier, errorMessage);
+                    var result = BaseResponse<object>.Fail(
+                        context.HttpContext.TraceIdentifier,
+                        errorMessage
+                    );
 
                     return new OkObjectResult(result);
                 };
