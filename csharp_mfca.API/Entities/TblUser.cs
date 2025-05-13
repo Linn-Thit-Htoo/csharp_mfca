@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace csharp_mfca.API.Entities;
+﻿namespace csharp_mfca.API.Entities;
 
 public partial class TblUser
 {
