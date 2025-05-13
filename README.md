@@ -39,8 +39,8 @@
 | **Models**         | Aggregates and domain models shared across features. |
 | **Middlewares**    | Custom middleware logic (interceptors, guards). |
 | **Persistence**    | Repository, Unit of Work patterns, ORM integration. |
-| **Resources**      | Localization and i18n files. |
-| **Services**       | Shared services like JWT, AES, Email, S3, SES, etc. |
+| **Resources**      | Localization and message resources. |
+| **Services**       | Shared services like JWT, AES, Email, S3, SES, SNS etc. |
 | **Utils**          | Base response model and utility helpers. |
 
 ---
