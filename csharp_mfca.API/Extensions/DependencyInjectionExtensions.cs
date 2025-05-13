@@ -6,7 +6,6 @@ using csharp_mfca.API.Middlewares;
 using csharp_mfca.API.Persistence.Wrapper;
 using csharp_mfca.API.Utils;
 using FluentValidation;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
