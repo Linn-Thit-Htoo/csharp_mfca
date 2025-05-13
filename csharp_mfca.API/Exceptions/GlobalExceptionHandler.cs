@@ -2,19 +2,18 @@
 using csharp_mfca.API.Utils;
 using Microsoft.AspNetCore.Diagnostics;
 
-namespace csharp_mfca.API.Exceptions
+namespace csharp_mfca.API.Exceptions;
+
+public class GlobalExceptionHandler : IExceptionHandler
 {
-    public class GlobalExceptionHandler : IExceptionHandler
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
-        {
-            var result = BaseResponse<object>.Fail(httpContext.TraceIdentifier, exception);
-            httpContext.Response.ContentType = "application/json";
+        var result = BaseResponse<object>.Fail(httpContext.TraceIdentifier, exception);
+        httpContext.Response.ContentType = "application/json";
 
-            string jsonStr = result.ToJson();
-            await httpContext.Response.WriteAsync(jsonStr, cancellationToken);
+        string jsonStr = result.ToJson();
+        await httpContext.Response.WriteAsync(jsonStr, cancellationToken);
 
-            return true;
-        }
+        return true;
     }
 }
