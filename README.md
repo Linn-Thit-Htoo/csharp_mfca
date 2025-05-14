@@ -1,4 +1,4 @@
-# 🧱 Modular Feature-Based Clean Architecture (MFCA)
+# Modular Feature-Based Clean Architecture (MFCA)
 
 > A modern approach to scalable and maintainable monoliths.
 
