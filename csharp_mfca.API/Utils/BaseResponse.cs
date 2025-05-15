@@ -1,5 +1,5 @@
-﻿using csharp_mfca.API.Constants;
-using System.Net;
+﻿using System.Net;
+using csharp_mfca.API.Constants;
 
 namespace csharp_mfca.API.Utils;
 
@@ -11,7 +11,11 @@ public class BaseResponse<T>
     public HttpStatusCode StatusCode { get; set; }
     public T? Data { get; set; }
 
-    public static BaseResponse<T> Success(string refNo, string message = MessageConstant.Success, HttpStatusCode statusCode = HttpStatusCode.OK)
+    public static BaseResponse<T> Success(
+        string refNo,
+        string message = MessageConstant.Success,
+        HttpStatusCode statusCode = HttpStatusCode.OK
+    )
     {
         return new BaseResponse<T>
         {
@@ -19,11 +23,16 @@ public class BaseResponse<T>
             IsSuccess = true,
             Message = message,
             StatusCode = statusCode,
-            RefNo = refNo
+            RefNo = refNo,
         };
     }
 
-    public static BaseResponse<T> Success(string refNo, T data, string message = MessageConstant.Success, HttpStatusCode statusCode = HttpStatusCode.OK)
+    public static BaseResponse<T> Success(
+        string refNo,
+        T data,
+        string message = MessageConstant.Success,
+        HttpStatusCode statusCode = HttpStatusCode.OK
+    )
     {
         return new BaseResponse<T>
         {
@@ -31,11 +40,15 @@ public class BaseResponse<T>
             IsSuccess = true,
             Message = message,
             StatusCode = statusCode,
-            RefNo = refNo
+            RefNo = refNo,
         };
     }
 
-    public static BaseResponse<T> Fail(string refNo, string message = MessageConstant.Failed, HttpStatusCode statusCode = HttpStatusCode.BadRequest)
+    public static BaseResponse<T> Fail(
+        string refNo,
+        string message = MessageConstant.Failed,
+        HttpStatusCode statusCode = HttpStatusCode.BadRequest
+    )
     {
         return new BaseResponse<T>
         {
@@ -43,11 +56,15 @@ public class BaseResponse<T>
             IsSuccess = false,
             Message = message,
             StatusCode = statusCode,
-            RefNo = refNo
+            RefNo = refNo,
         };
     }
 
-    public static BaseResponse<T> Fail(string refNo, Exception ex, HttpStatusCode statusCode = HttpStatusCode.BadRequest)
+    public static BaseResponse<T> Fail(
+        string refNo,
+        Exception ex,
+        HttpStatusCode statusCode = HttpStatusCode.BadRequest
+    )
     {
         return new BaseResponse<T>
         {
@@ -55,7 +72,7 @@ public class BaseResponse<T>
             IsSuccess = false,
             Message = ex.ToString(),
             StatusCode = statusCode,
-            RefNo = refNo
+            RefNo = refNo,
         };
     }
 }
