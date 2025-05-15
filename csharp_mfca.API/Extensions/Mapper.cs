@@ -15,7 +15,7 @@ public static class Mapper
             CreatedAt = DateTime.Now,
             IsDeleted = false,
             PasswordHash = hashPassword,
-            Salt = salt
+            Salt = salt,
         };
     }
 }
